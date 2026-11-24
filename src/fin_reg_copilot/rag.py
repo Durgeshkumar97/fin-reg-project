@@ -36,6 +36,7 @@ def answer(question):
         messages=[{"role": "user", "content": PROMPT.format(context=context, question=question)}],
         temperature=0,
         # LiteLLM's model map wrongly says this model doesn't support temperature; the API accepts it (tested 24 Nov 2026)
+        num_retries=3,
         allowed_openai_params=["temperature"],
     )
     return {"answer": resp.choices[0].message.content, "sources": chunks}
