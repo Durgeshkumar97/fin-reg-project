@@ -14,3 +14,4 @@ wheels/
 data/raw/*.pdf
 data/qdrant/
 .claude/
+data/models/

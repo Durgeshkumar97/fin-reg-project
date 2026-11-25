@@ -15,7 +15,7 @@ Answer:"""
 # lru_cache
 @lru_cache
 def _embedder():
-    return TextEmbedding(config.EMBED_MODEL)
+    return TextEmbedding(config.EMBED_MODEL, cache_dir=str(config.EMBED_CACHE))
 
 @lru_cache
 def _client():

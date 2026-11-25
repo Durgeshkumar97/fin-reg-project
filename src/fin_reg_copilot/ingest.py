@@ -38,7 +38,7 @@ def build_records():
 def main():
     records = build_records()
     print(f"Chunks: {len(records)}")
-    embedder = TextEmbedding(config.EMBED_MODEL)
+    embedder = TextEmbedding(config.EMBED_MODEL, cache_dir=str(config.EMBED_CACHE))
     vectors = list(embedder.embed([r["text"] for r in records]))
     client = QdrantClient(path= str(config.QDRANT_PATH))
 
@@ -58,7 +58,7 @@ def main():
         ],
     )
 
-    print(f"Stored {len(records)} chunks in '{config.COLLECTION}")
+    print(f"Stored {len(records)} chunks in '{config.COLLECTION}'")
 
 if __name__ == "__main__":
     main()
