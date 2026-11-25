@@ -13,3 +13,4 @@ wheels/
 .env
 data/raw/*.pdf
 data/qdrant/
+.claude/
